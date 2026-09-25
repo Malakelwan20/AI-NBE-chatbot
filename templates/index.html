@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NBE Smart Banking Assistant</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <!-- LOGO -->
+
+        <div class="logo-section">
+
+            <div class="nbe-logo">
+                NBE
+            </div>
+
+            <div>
+                <h2>Smart Banking</h2>
+                <span>AI Assistant</span>
+            </div>
+
+        </div>
+
+
+        <!-- NEW CHAT -->
+
+        <button
+            class="new-chat"
+            onclick="newChat()"
+        >
+
+            <span>＋</span>
+
+            New Chat
+
+        </button>
+
+
+        <!-- SERVICES -->
+
+        <div class="sidebar-section">
+
+            <p class="section-title">
+                SERVICES
+            </p>
+
+
+            <!-- ACCOUNTS -->
+
+            <button
+                class="service-btn"
+                onclick="askQuestion('How can I open a bank account?')"
+            >
+
+                <span class="service-icon">🏦</span>
+
+                <span>Accounts</span>
+
+            </button>
+
+
+            <!-- CARDS -->
+
+            <button
+                class="service-btn"
+                onclick="askQuestion('What types of cards are available?')"
+            >
+
+                <span class="service-icon">💳</span>
+
+                <span>Cards</span>
+
+            </button>
+
+
+            <!-- LOANS -->
+
+            <button
+                class="service-btn"
+                onclick="askQuestion('What types of loans are available?')"
+            >
+
+                <span class="service-icon">💰</span>
+
+                <span>Loans</span>
+
+            </button>
+
+
+            <!-- DIGITAL BANKING -->
+
+            <button
+                class="service-btn"
+                onclick="askQuestion('What digital banking services are available?')"
+            >
+
+                <span class="service-icon">📱</span>
+
+                <span>Digital Banking</span>
+
+            </button>
+
+        </div>
+
+
+        <!-- RECENT CHATS -->
+
+        <div class="sidebar-section recent-section">
+
+            <p class="section-title">
+                RECENT CHATS
+            </p>
+
+           <div id="recent-chats">
+
+    <button
+        class="recent-chat"
+        onclick="askQuestion('How can I open an account at NBE?')"
+    >
+        Account information
+    </button>
+
+    <button
+        class="recent-chat"
+        onclick="askQuestion('What credit cards are available at NBE?')"
+    >
+        Credit cards
+    </button>
+
+    <button
+        class="recent-chat"
+        onclick="askQuestion('What digital banking services does NBE offer?')"
+    >
+        Digital banking
+    </button>
+
+</div>
+
+        <!-- SIDEBAR FOOTER -->
+
+        <div class="sidebar-footer">
+
+            <div class="online-dot"></div>
+
+            <span>
+                AI Assistant Online
+            </span>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <div>
+
+                <h1>
+                    NBE Smart Banking Assistant
+                </h1>
+
+                <p>
+                    Your intelligent banking companion
+                </p>
+
+            </div>
+
+
+            <div class="status">
+
+                <span class="status-dot"></span>
+
+                Online
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= CHAT AREA ================= -->
+
+        <section class="chat-area">
+
+            <div id="chat-box">
+
+
+                <!-- WELCOME SCREEN -->
+
+                <div id="welcome-screen">
+
+                    <div class="welcome-icon">
+                        🤖
+                    </div>
+
+
+                    <h2>
+                        Good afternoon 👋
+                    </h2>
+
+
+                    <p>
+                        How can I help you today?
+                    </p>
+
+
+                    <!-- SUGGESTIONS -->
+
+                    <div class="suggestions">
+
+
+                        <!-- ACCOUNT CARD -->
+
+                        <button
+                            class="suggestion-card"
+                            onclick="askQuestion('How can I open a bank account?')"
+                        >
+
+                            <span class="suggestion-icon">
+                                🏦
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Open an Account
+                                </strong>
+
+                                <small>
+                                    Learn about account requirements
+                                </small>
+
+                            </div>
+
+                        </button>
+
+
+                        <!-- CARDS CARD -->
+
+                        <button
+                            class="suggestion-card"
+                            onclick="askQuestion('What types of cards are available?')"
+                        >
+
+                            <span class="suggestion-icon">
+                                💳
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Explore Cards
+                                </strong>
+
+                                <small>
+                                    Find the right card for you
+                                </small>
+
+                            </div>
+
+                        </button>
+
+
+                        <!-- LOANS CARD -->
+
+                        <button
+                            class="suggestion-card"
+                            onclick="askQuestion('What types of loans are available?')"
+                        >
+
+                            <span class="suggestion-icon">
+                                💰
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Loan Services
+                                </strong>
+
+                                <small>
+                                    Explore available loan options
+                                </small>
+
+                            </div>
+
+                        </button>
+
+
+                        <!-- DIGITAL BANKING CARD -->
+
+                        <button
+                            class="suggestion-card"
+                            onclick="askQuestion('What digital banking services are available?')"
+                        >
+
+                            <span class="suggestion-icon">
+                                📱
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Digital Banking
+                                </strong>
+
+                                <small>
+                                    Discover digital services
+                                </small>
+
+                            </div>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= INPUT ================= -->
+
+        <div class="input-container">
+
+            <div class="input-wrapper">
+
+                <input
+                    type="text"
+                    id="user-input"
+                    placeholder="Ask NBE Smart Assistant..."
+                    autocomplete="off"
+                >
+
+
+                <button
+                    id="send-button"
+                    type="button"
+                    onclick="sendMessage()"
+                >
+
+                    ➤
+
+                </button>
+
+            </div>
+
+
+            <p class="input-note">
+
+                NBE Smart Assistant can make mistakes.
+                Please verify important information.
+
+            </p>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
